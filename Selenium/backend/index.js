@@ -28,6 +28,7 @@ app.post("/", async (req, res)=>{
         await driver.sleep(3000)
         const next = await driver.findElements(By.css(' div[role="group"] button div span span'));
         await next[1].click();
+        await driver.sleep(10000)
         const password = await driver.findElement(By.css('div[role="group"] input[name="password"]'));
         await driver.actions().sendKeys(password, process.env.USER_PASS).perform()
         await driver.sleep(3000)
